@@ -2,10 +2,10 @@
 
 <div class="header">
 
-    {{ if or (not (.Param "hideHeader")) .IsHome }}
+    {{ if or (not (site.Param "hideHeader")) .IsHome }}
 
     <h1 class="header-title">
-        <a href="{{ site.BaseURL }}">{{ site.Title }}</a>
+        <a href="{{- `` | absURL -}}">{{ .Site.Title }}</a>
     </h1>
 
     <div class="flex">
