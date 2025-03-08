@@ -19,9 +19,7 @@
             {{ if .Page.Params.redirect_url }}
                 <a href="{{ .Page.Params.redirect_url }}">/{{ .Name }}</a>
             {{ else }}
-                <a href="{{ .URL }}" {{ if and (isset . "newTab") .newTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
-                    /{{.Name }}
-                </a>
+                <a href="{{ .URL }}">/{{.Name }}</a>
             {{ end }}
         </p>
         {{ end }}
