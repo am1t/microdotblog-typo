@@ -1,0 +1,63 @@
+{
+	"version": "1.0.0",
+	"title": "Typo theme",
+	"description": "A Hugo theme backed by simplicity.",
+	"fields": [
+		{
+			"field": "params.colorPalette",
+			"label": "Theme Color Palette",
+			"placeholder": "Color Palette for Theme (base, catpuccin, cupcake, eighties, eink, gruvebox, mocha, ocean)"
+		},
+		{
+			"field": "params.hideHeader",
+			"label": "Hide Header",
+			"placeholder": "Hide the header on every page apart from the homepage (false/true)"
+		},
+		{
+			"field": "params.homeIntroTitle",
+			"label": "Intro Section Title",
+			"placeholder": "Your Homepage Introduction Title"
+		},
+		{
+			"field": "params.homeIntroContent",
+			"label": "Intro Section Content",
+			"placeholder": "Your Homepage Introduction Section Content",
+			"type": "markdown"
+		},
+		{
+			"field": "params.social.microdotblog",
+			"label": "Micro.blog",
+			"placeholder": "Your Micro.blog username"
+		},
+		{
+			"field": "params.social.mastodon.url",
+			"label": "Mastodon",
+			"placeholder": "Your Mastodon profile url (including instance)"
+		},
+		{
+			"field": "params.social.linkedin.url",
+			"label": "LinkedIn",
+			"placeholder": "Your LinkedIn username"
+		},
+		{
+			"field": "params.social.threads.url",
+			"label": "Threads",
+			"placeholder": "Your Threads Id"
+		},
+		{
+			"field": "params.social.bluesky.url",
+			"label": "Bluesky",
+			"placeholder": "Your Bluesky Id"
+		},
+		{
+			"field": "params.social.buymeacoffee.url",
+			"label": "Buy Me a Coffee",
+			"placeholder": "Your Buy Me a Coffee Profile link"
+		},
+		{
+			"field": "params.favicon",
+			"label": "Favicon Path",
+			"placeholder": "Path to the favicon to be used"
+		}
+	]	
+}

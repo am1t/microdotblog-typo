@@ -39,8 +39,8 @@
     <h1> {{ . }} </h1>
     {{ end }}
 
-    {{ $pages := where .Site.RegularPages "Section" .Site.Params.homeCollection
-    }}
+    {{ $pages := where site.RegularPages "Type" "post" }}
+    {{ $pages = where $pages "Title" "!=" "" }}
 
     {{ $paginationSize := 1}}
     {{ if (gt .Site.Params.paginationSize 0) }}
@@ -50,7 +50,21 @@
     {{ $paginator := .Paginate $pages $paginationSize }}
 
     {{ range $index, $page := $paginator.Pages }}
-    {{ partial "post-entry.html" $page}}
+        <div class="post-line">
+
+            {{ $dateFormat := "2 Jan 2006"}}
+            {{ with .Site.Params.listDateFormat }}
+            {{ $dateFormat = .}}
+            {{ end }}
+        
+            <p class="line-date"><a href="{{ .RelPermalink }}">{{ .Date | time.Format $dateFormat }}</a></p>
+        
+            <div>
+                <p class="line-title">
+                    {{ .Title }}
+                </p>
+            </div>
+        </div>
     {{ end }}
 
     {{ partial "pagination-controls.html" $paginator}}

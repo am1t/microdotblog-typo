@@ -5,17 +5,15 @@
     {{ $dateFormat = .}}
     {{ end }}
 
-    <p class="line-date">{{ .Date | time.Format $dateFormat }} </p>
+    <p class="line-date"><a href="{{ .RelPermalink }}">{{ .Date | time.Format $dateFormat }}</a></p>
 
     <div>
         <p class="line-title">
-            <a href="{{ .RelPermalink }}">
-                {{ .Title }}
-            </a>
+            {{ .Title }}
         </p>
 
         {{ if .Site.Params.listSummaries }}
-        <p class="line-summary"> {{ .Summary }} </p>
+        <p class="line-summary"> {{ .Summary | truncate 300 }} </p>
         {{ end }}
     </div>
 </div>

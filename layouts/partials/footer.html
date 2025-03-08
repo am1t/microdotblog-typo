@@ -3,12 +3,9 @@
     {{ if not .Site.Params.footerContent }}
     <p>Powered by
         <a href="https://gohugo.io/">Hugo</a>
-        and
-        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+        & 
+        <a href="https://micro.blog">Micro.blog</a>
     </p>
     {{ end }}
     
-    {{ with .Site.Params.footerContent }}
-    <p>{{ . | markdownify }}</p>
-    {{ end }}
 {{ end }}

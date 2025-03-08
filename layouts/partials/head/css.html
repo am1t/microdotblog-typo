@@ -24,3 +24,4 @@ $combined := $CSS
 }}
 
 <link rel="stylesheet" href="{{ $combined.RelPermalink }}" media="all">
+<link rel="stylesheet" href="{{ "custom.css" | relURL }}?{{ .Site.Params.theme_seconds }}">

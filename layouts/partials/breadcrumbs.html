@@ -4,6 +4,6 @@
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     <span class="breadcrumbs-separator"> / </span>
     {{ end }}
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <a href="{{ .RelPermalink }}">{{ if .Title }} {{ .Title }} {{else}}⌘{{end}}</a>
 </div>
 {{ end }}

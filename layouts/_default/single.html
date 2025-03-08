@@ -8,22 +8,23 @@
 
 <div {{ if .Param "autonumber" }} class="autonumber" {{ end }}>
 
-  <div class="single-intro-container">
+  <div class="single-intro-container h-entry">
 
     {{/* Title and Summary */}}
 
-    <h1 class="single-title">{{ .Title }}</h1>
+    <h1 class="single-title p-name">{{ .Title }}</h1>
     {{ with .Param "summary" }}
     <p class="single-summary">{{ . | markdownify }}</p>
     {{ end }}
 
+    {{ $permaLink := .Permalink }}
     {{/* Reading Time */}}
 
     <p class="single-readtime">
       {{ with .Date }}
       {{ $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" }}
       {{ $dateHuman := . | time.Format (default ":date_long" $.Site.Params.singleDateFormat) }}
-      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+      <a class="u-url" href="{{ $permaLink }}"><time class="dt-published" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></a>
       {{end}}
 
       {{ if .Param "readTime" }}
@@ -33,24 +34,6 @@
     </p>
 
   </div>
-
-  {{ if .Param "showTags" }}
-
-  {{ $taxonomy := "tags" }}
-  {{ with .Param $taxonomy }}
-
-  <div class="single-tags">
-    {{ range $index, $tag := . }}
-    {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $tag) -}}
-    <span>
-      <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
-    </span>
-    {{ end }}
-    {{ end }}
-  </div>
-
-  {{ end }}
-  {{ end }}
 
   {{/* Table of Content */}}
 
@@ -64,13 +47,46 @@
   {{/* Page content */}}
 
   <div class="single-content">
-    {{ .Content }}
+    <section class="e-content">{{ .Content }}</section>
     {{ if .Site.Params.giscus.enable }}
     {{ if not .Params.disableComment }}
     {{ partial "comments.html" . }}
     {{ end }}
     {{ end }}
   </div>
+
+  {{ if .Params.categories }}
+
+  <div class="single-tags">
+    {{- range .Params.categories -}} {{- $href := print (absURL "categories/") (urlize .) -}}
+    <span class="p-category">
+      <a href="{{- $href -}}">#{{- . -}}</a>
+    </span>
+    {{- end -}}
+  </div>
+
+  {{ end }}
+
+  <!-- Post Reply Plugins -->
+  {{ if eq .Type "post"}}
+    {{ if or (templates.Exists "partials/reply-by-email.html") (templates.Exists "partials/conversation-link.html") }}
+    <footer class="post-tags post-reply">
+      {{ if templates.Exists "partials/reply-by-email.html" }}
+          {{ partial "reply-by-email.html" . }}
+      {{ end }}
+
+      {{ if templates.Exists "partials/conversation-link.html" }}
+        {{ partial "conversation-link.html" . }}
+      {{ end }}
+    </footer>
+    {{ end }}
+  {{ end }}
+
+
+  <!-- Replies via Webmentions -->
+  {{ if .Site.Params.include_conversation }}
+  <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+  {{ end }}   
 
   {{ if .Store.Get "hasMermaid" }}
   {{ $mermaidDarkTheme := default "dark" (or .Params.mermaidDarkTheme .Site.Params.mermaidDarkTheme) }}

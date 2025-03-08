@@ -1,45 +1,43 @@
-![banner](https://raw.githubusercontent.com/tomfran/typo/main/images/banner-light.webp)
+![banner](https://raw.githubusercontent.com/am1t/microdotblog-typo/main/images/banner-light.webp)
 
-# Typo, a Hugo theme.
+# Typo, a Hugo theme. Ported for Micro.blog
 
 Typo is a theme backed by simplicity, as you can see in the screenshots below. The goal was to have a website centered around content and nothing more.
 
-[![wiki](https://img.shields.io/badge/doc-wiki-orange)](https://tomfran.github.io/typo-wiki/)
-[![hugo-typo](https://img.shields.io/badge/hugo_themes-@typo-red)](https://themes.gohugo.io/themes/typo/)
-[![GitHub Release](https://img.shields.io/github/v/release/tomfran/typo)](https://github.com/tomfran/typo/releases/latest)
-[![last-commit](https://img.shields.io/github/last-commit/tomfran/typo)](https://github.com/tomfran/typo/commits/)
-
 **Homepage**
 
-![1](https://raw.githubusercontent.com/tomfran/typo/main/images/1.webp)
+![1](https://raw.githubusercontent.com/am1t/microdotblog-typo/main/images/1.webp)
 
-**Article**
+**Blog Post**
 
-![2](https://raw.githubusercontent.com/tomfran/typo/main/images/2.webp)
+![2](https://raw.githubusercontent.com/am1t/microdotblog-typo/main/images/2.webp)
 
-![3](https://raw.githubusercontent.com/tomfran/typo/main/images/3.webp)
+![3](https://raw.githubusercontent.com/am1t/microdotblog-typo/main/images/3.webp)
 
-## 1 Wiki
+## 1 Installing the theme
 
-Typo's [Wiki](https://tomfran.github.io/typo-wiki/) is the place to find instructions on how to [setup](https://tomfran.github.io/typo-wiki/setup) the theme and an overview of the available [features](https://tomfran.github.io/typo-wiki/features). 
+Typo is [available in Micro.blog's Plug-ins directory](https://micro.blog/account/plugins/view/43) and can directly be installed from there. Note that **the theme is compatible with Hugo 0.91** which is available as a setting on Micro.blog. You can follow the below general steps to install the theme. 
 
-Some of the most relevant are: heading auto-numbering, dark mode, color palettes, dark and light images, comments, etc.
+- Uninstall any theme that you have installed as a plugin. 
+- Set you current theme to blank and Hugo Version to 0.91 in the design section of your blog. 
+- Make sure there are no other conflicting custom CSS configured for the previous theme. 
+- Install the "[Typo theme](https://micro.blog/account/plugins/view/43)" plug-in from the directory. 
+- Once the theme is successfully installed, you can configure the social icons displayed in the header by modifying the available options as plug-in's settings.
+- Additionally, you can also configure parameter in settings.
 
-## 2 Support
+## 2 Features
 
-If you use the theme or found it useful you can support me by leaving a star ⭐ to Typo's Github repository.
+Typo supports multiple features, configurable by easy settings screen.
 
-[Contributions](https://github.com/tomfran/typo/blob/main/CONTRIBUTING.md) are always welcome, feel free to open issues and PRs with fixes or new features.
+- Introduction on the homepage
+- Multiple color palette in the theme
+- Social profile links on the homepage
 
-## 3 Typo Users
+## 3 Change Log
 
-If you're using Typo for your website, feel free to add your website to [the list](https://github.com/tomfran/typo/blob/main/USERS.md) alongside what you do! 😊
+**Version 1.0:** Released 8th March, 2025
+- First version
 
-## 4 Questions or ideas? 
+## License
 
-Use the [discussion tab](https://github.com/tomfran/typo/discussions) to share ideas/tips/questions about Typo or Hugo in general!
-
-## 5 References
-
-The SVGs for social icons are taken from [Simple Icons](https://github.com/simple-icons/simple-icons).
-Every SVG present on the website is usable on the theme.
+[MIT License](https://github.com/am1t/microdotblog-typo/blob/main/LICENSE)

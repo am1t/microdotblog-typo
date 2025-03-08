@@ -7,3 +7,27 @@ title = 'typo'
 [module.hugoVersion]
 extended = false
 min = "0.116.0"
+
+[params]
+# Appearance settings
+theme = 'auto'
+colorPalette = 'default'
+hideHeader = false
+
+showTags = true
+
+# Collection to display on home
+homeCollectionTitle = 'Posts'
+homeCollection = 'posts'
+
+# Lists parameters
+listSummaries = true
+listDateFormat = 'Jan 2, 2006'
+
+# Breadcrumbs
+breadcrumbs = true
+
+# Syntax highlight on code blocks
+[markup]
+[markup.highlight]
+style = 'algol'

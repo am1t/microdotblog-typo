@@ -32,8 +32,14 @@
   {{ partialCached "math.html" . }}
   {{ end }}
 
+  {{ partial "custom_footer.html" . }}
+
 </body>
 
 <script src="{{ "js/theme-switch.js" | relURL }}"></script>
 <script defer src="{{ "js/copy-code.js" | relURL }}"></script>
+
+{{ range .Site.Params.plugins_js }}
+  <script src="{{ . }}"></script>
+{{ end }}
 </html>

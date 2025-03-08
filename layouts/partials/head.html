@@ -1,13 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-{{ $faviconPath := (.Site.Params.faviconPath | default "" | absURL) }}
-
-<link rel="icon" type="image/ico" href="{{ $faviconPath }}/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ $faviconPath }}/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ $faviconPath }}/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="{{ $faviconPath }}/android-chrome-192x192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ $faviconPath }}/apple-touch-icon.png">
+<!-- favicon -->
+{{ $defaultPath := printf "/favicon.png" | printf "%s%s" $.Site.Author.username | printf "https://micro.blog/%s" | printf "%s" }}
+<link rel="shortcut icon" href="{{ .Site.Params.favicon | default $defaultPath }}" type="image/x-icon" />
+<link rel="apple-touch-icon" href="{{ .Site.Params.favicon | default $defaultPath }}" type="image/x-icon" />
 
 {{ with .OutputFormats.Get "rss" -}}
 {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
@@ -26,8 +23,9 @@
 <title>
     {{ if .IsHome }}
     {{ site.Title }}
+    {{ else if .Title }}{{ printf "%s | %s" .Title site.Title }}
     {{ else }}
-    {{ printf "%s | %s" .Title site.Title }}
+    {{ delimit (split .Summary " " | first 5) " " }} … | {{ .Site.Title }}
     {{ end }}
 </title>
 
@@ -45,4 +43,6 @@
 {{ partial "umami.html" . }}
 {{ end }}
 {{ end }}
+
+{{ partial "microblog_head.html" . }}
 
