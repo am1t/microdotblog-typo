@@ -4,13 +4,13 @@
 
 {{/* Intro summary section */}}
 
-{{ if or .Site.Params.homeIntroTitle .Site.Params.homeIntroContent }}
+{{ if or site.Params.homeIntroTitle site.Params.homeIntroContent }}
 <div class="intro">
-    {{ with .Site.Params.homeIntroTitle }}
+    {{ with site.Params.homeIntroTitle }}
     <h1>{{ . }}</h1>
     {{ end }}
 
-    {{ with .Site.Params.homeIntroContent }}
+    {{ with site.Params.homeIntroContent }}
     <p>{{ . | markdownify }}</p>
     {{ end }}
 </div>

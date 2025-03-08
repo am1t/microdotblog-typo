@@ -60,7 +60,7 @@
   <div class="single-tags">
     {{- range .Params.categories -}} {{- $href := print (absURL "categories/") (urlize .) -}}
     <span class="p-category">
-      <a href="{{- $href -}}">#{{- . -}}</a>
+      <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">#{{- . -}}</a>
     </span>
     {{- end -}}
   </div>
