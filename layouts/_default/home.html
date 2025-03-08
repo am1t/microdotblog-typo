@@ -18,10 +18,20 @@
 
 {{/* Social Icons */}}
 
+{{ with site.Params.social }}
+<div class="social-icons">
+    {{- range . }}
+    <a href="{{ trim .url " " | safeURL }}" target="_blank"
+        rel="noopener noreferrer me"
+        title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- end }}
+</div>
+{{ end }}
+
 <div class="list-container">
-    {{ with .Site.Params.homeCollectionTitle}}
-    <h1> {{ . }} </h1>
-    {{ end }}
+    <h1> Posts </h1>
 
     {{ $pages := where site.RegularPages "Type" "post" }}
     {{ $pages = where $pages "Title" "!=" "" }}
@@ -36,10 +46,7 @@
     {{ range $index, $page := $paginator.Pages }}
         <div class="post-line">
 
-            {{ $dateFormat := "2 Jan 2006"}}
-            {{ with .Site.Params.listDateFormat }}
-            {{ $dateFormat = .}}
-            {{ end }}
+            {{ $dateFormat := "Jan 2, 2006"}}
         
             <p class="line-date"><a href="{{ .RelPermalink }}">{{ .Date | time.Format $dateFormat }}</a></p>
         
