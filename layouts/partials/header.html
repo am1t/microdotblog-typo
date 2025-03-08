@@ -17,10 +17,10 @@
       
         <p class="small {{ if eq .URL $url }} bold {{end}}">
             {{ if .Page.Params.redirect_url }}
-                <a href="{{ .Page.Params.redirect_url }}">/{{ .name }}</a>
+                <a href="{{ .Page.Params.redirect_url }}">/{{ .Name }}</a>
             {{ else }}
-                <a href="{{ .url }}" {{ if and (isset . "newTab") .newTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
-                    /{{.name }}
+                <a href="{{ .URL }}" {{ if and (isset . "newTab") .newTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                    /{{.Name }}
                 </a>
             {{ end }}
         </p>
