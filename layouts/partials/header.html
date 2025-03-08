@@ -11,6 +11,7 @@
     <div class="flex">
         {{ $currentPage := . }}
 
+        {{- $url := .RelPermalink -}}
         {{ with site.Menus.main }}
         {{ range . }}
       
