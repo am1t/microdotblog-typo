@@ -30,32 +30,18 @@
 </div>
 {{ end }}
 
-{{/* Collection Section */}}
-
-{{ if .Site.Params.homeCollection }}
-
 <div class="list-container">
-    {{ with .Site.Params.homeCollectionTitle}}
-    <h1> {{ . }} </h1>
-    {{ end }}
+    <h1>Posts</h1>
 
-    {{ $pages := where .Site.RegularPages "Section" .Site.Params.homeCollection }}
+    {{ $pages := where site.RegularPages "Type" "post" }}
     {{ $pages = where $pages "Title" "!=" "" }}
 
-    {{ $paginationSize := 1}}
-    {{ if (gt .Site.Params.paginationSize 0) }}
-    {{ $paginationSize = .Site.Params.paginationSize }}
-    {{ end }}
-
-    {{ $paginator := .Paginate $pages $paginationSize }}
+    {{ $paginator := .Paginate $pages }}
 
     {{ range $index, $page := $paginator.Pages }}
         <div class="post-line">
 
-            {{ $dateFormat := "2 Jan 2006"}}
-            {{ with .Site.Params.listDateFormat }}
-            {{ $dateFormat = .}}
-            {{ end }}
+            {{ $dateFormat := "Jan 2, 2006"}}
         
             <p class="line-date"><a href="{{ .RelPermalink }}">{{ .Date | time.Format $dateFormat }}</a></p>
         
@@ -68,7 +54,6 @@
     {{ end }}
 
     {{ partial "pagination-controls.html" $paginator}}
-    
 </div>
 
 {{ end }}
